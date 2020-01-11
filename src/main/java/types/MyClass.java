@@ -1,3 +1,5 @@
+package types;
+
 public class MyClass {
     private Class<?> xClass;
     private boolean added;

@@ -156,4 +156,74 @@ public interface gramaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAddcons(gramaParser.AddconsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link gramaParser#setmethodbody}.
+	 * @param ctx the parse tree
+	 */
+	void enterSetmethodbody(gramaParser.SetmethodbodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link gramaParser#setmethodbody}.
+	 * @param ctx the parse tree
+	 */
+	void exitSetmethodbody(gramaParser.SetmethodbodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link gramaParser#addbeformethod}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddbeformethod(gramaParser.AddbeformethodContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link gramaParser#addbeformethod}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddbeformethod(gramaParser.AddbeformethodContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link gramaParser#addaftermethod}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddaftermethod(gramaParser.AddaftermethodContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link gramaParser#addaftermethod}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddaftermethod(gramaParser.AddaftermethodContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link gramaParser#setctorbody}.
+	 * @param ctx the parse tree
+	 */
+	void enterSetctorbody(gramaParser.SetctorbodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link gramaParser#setctorbody}.
+	 * @param ctx the parse tree
+	 */
+	void exitSetctorbody(gramaParser.SetctorbodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link gramaParser#savejar}.
+	 * @param ctx the parse tree
+	 */
+	void enterSavejar(gramaParser.SavejarContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link gramaParser#savejar}.
+	 * @param ctx the parse tree
+	 */
+	void exitSavejar(gramaParser.SavejarContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link gramaParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr(gramaParser.ExprContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link gramaParser#expr}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr(gramaParser.ExprContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link gramaParser#expr2}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpr2(gramaParser.Expr2Context ctx);
+	/**
+	 * Exit a parse tree produced by {@link gramaParser#expr2}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpr2(gramaParser.Expr2Context ctx);
 }

@@ -99,4 +99,46 @@ public interface gramaVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAddcons(gramaParser.AddconsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link gramaParser#setmethodbody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSetmethodbody(gramaParser.SetmethodbodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link gramaParser#addbeformethod}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddbeformethod(gramaParser.AddbeformethodContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link gramaParser#addaftermethod}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddaftermethod(gramaParser.AddaftermethodContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link gramaParser#setctorbody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSetctorbody(gramaParser.SetctorbodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link gramaParser#savejar}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSavejar(gramaParser.SavejarContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link gramaParser#expr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr(gramaParser.ExprContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link gramaParser#expr2}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpr2(gramaParser.Expr2Context ctx);
 }

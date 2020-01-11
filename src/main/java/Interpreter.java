@@ -5,7 +5,7 @@ public class Interpreter {
     static gramaLexer lexer;
     static CommonTokenStream tokenStream;
     static gramaParser parser;
-    static InterpreterMethod engine = new InterpreterMethod();
+    static GramaMethods engine = new GramaMethods();
     static CodePointCharStream input;
 
     public static void parse(CodePointCharStream in)
