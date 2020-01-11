@@ -1,0 +1,2 @@
+add-field com.diamond.iain.javagame.gfx.KeyManager public static boolean cheat false
+add-after-method com.diamond.iain.javagame.gfx.KeyManager.keyReleased(java.awt.event.KeyEvent) C:/Users/Artur/IdeaProjects/JFK/projekt2/keyReleased.txt
