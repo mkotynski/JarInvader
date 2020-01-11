@@ -2,6 +2,7 @@ import types.MyClass;
 import javassist.*;
 
 import java.io.*;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -198,22 +199,27 @@ public class ModifyJar {
     }
 
     public void removeClass(String className) {
-        Class xClass = Engine.myJar.classList.stream()
-            .filter(aClass -> aClass.getxClass().getName())
-                .findAny()
-                .orElse(null);
+        List<MyClass> found = new ArrayList<>();
+        for(MyClass myClass: Engine.myJar.classList){
+            System.out.println(className + " = " + myClass.getxClass().getName());
+            if(myClass.getxClass().getName().equals(className)){
+                found.add(myClass);
+            } else if((myClass.getxClass().getName()).lastIndexOf("$") != -1 &&(myClass.getxClass().getName()).substring(0,(myClass.getxClass().getName()).lastIndexOf("$")).equals(className)){
+                found.add(myClass);
+            }
+        }
 
-        if (clazz == null) {
+        if (found.isEmpty()) {
             System.out.println("Nie ma takiej klasy");
             return;
         }
 
-        boolean removed = JarController.classes.remove(clazz, true);
+        boolean removed = Engine.myJar.classList.removeAll(found);
 
         if (removed) {
-            System.out.println("usunieto");
+            System.out.println("Usunieto");
         } else {
-            System.out.println("nie mozesz usunac tej klasy");
+            System.out.println("Nie mozesz usunac tej klasy");
         }
 
     }
