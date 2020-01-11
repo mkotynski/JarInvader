@@ -14,7 +14,7 @@ import java.util.jar.*;
 
 public class JarFile {
     public static ArrayList<String> packageList = new ArrayList<>();
-    public static HashMap<Class<?>, Boolean> classList = new HashMap<>();
+    public static List<MyClass> classList = new ArrayList<>();
     public static List<String> fileList = new ArrayList<>();
     public static ClassPool classPool;
     URL jarUrl;
@@ -40,13 +40,14 @@ public class JarFile {
 
             if (fileName.endsWith(".class")) {
                 String className = fileName.replace("/", ".").substring(0, fileName.length() - 6);
-                Class<?> c = null;
+                //Class<?> c = null;
+                MyClass myClass = new MyClass(null,false);
                 try {
-                    c = classLoader.loadClass(className);
+                    myClass.setxClass(classLoader.loadClass(className));
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
-                classList.put(c,false);
+                classList.add(myClass);
             }
             fileList.add(fileName);
         }
@@ -80,7 +81,7 @@ public class JarFile {
         int len = 0;
         byte[] buffer = new byte[1024];
 
-        String jarName = "invaders.jar";
+        String jarName = "Invaders.jar";
 
         for (String name : fileList) {
 
@@ -106,23 +107,25 @@ public class JarFile {
             target.putNextEntry(je);
         }
 
-        for (Class<?> aClass : classList.keySet()) {
-            String entry = aClass.getName().replace('.', '/');
-            entry += ".class";
-            JarEntry je = new JarEntry(entry);
-            je.setComment("Craeting Jar");
-            je.setTime(Calendar.getInstance().getTimeInMillis());
+        for (MyClass aClass : classList) {
+            if(aClass.isAdded()) {
+                String entry = aClass.getxClass().getName().replace('.', '/');
+                entry += ".class";
+                JarEntry je = new JarEntry(entry);
+                je.setComment("Craeting Jar");
+                je.setTime(Calendar.getInstance().getTimeInMillis());
                 target.putNextEntry(je);
-            //write the bytes of file into jar
-            CtClass ctClass = classPool.get(aClass.getName());
+                //write the bytes of file into jar
+                CtClass ctClass = classPool.get(aClass.getxClass().getName());
 
-            try {
-                target.write(ctClass.toBytecode());
-            } catch (CannotCompileException e) {
-                e.printStackTrace();
+                try {
+                    target.write(ctClass.toBytecode());
+                } catch (CannotCompileException e) {
+                    e.printStackTrace();
+                }
+
+                target.closeEntry();
             }
-
-            target.closeEntry();
         }
 
         target.close();

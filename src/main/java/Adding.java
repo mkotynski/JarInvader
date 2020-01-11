@@ -38,12 +38,16 @@ public class Adding {
 
     public static void addClass(String name) throws CannotCompileException {
         CtClass ctClass = JarFile.classPool.makeClass(name);
-        JarFile.classList.put(ctClass.toClass(),true);
+        //JarFile.classList.put(ctClass.toClass(),true);
+        MyClass myClass = new MyClass(ctClass.toClass(),true);
+        JarFile.classList.add(myClass);
     }
 
     public static void addInterface(String name) throws CannotCompileException {
         CtClass ctClass = JarFile.classPool.makeInterface(name);
-        JarFile.classList.put(ctClass.toClass(),true);
+        //JarFile.classList.put(ctClass.toClass(),true);
+        MyClass myClass = new MyClass(ctClass.toClass(),true);
+        JarFile.classList.add(myClass);
     }
 
     public static void addMethod(String name, String declaration) throws NotFoundException, CannotCompileException {
