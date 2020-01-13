@@ -84,7 +84,6 @@ public class MyJar {
         for (String name : fileList) {
             JarEntry je = new JarEntry(name);
 
-            System.out.println("FILE: " + name);
             File file = new File(getNameJar() + "!/" + name);
             je.setTime(Calendar.getInstance().getTimeInMillis());
             target.putNextEntry(je);
@@ -101,20 +100,16 @@ public class MyJar {
         }
 
         for (String s : packageList) {
-            System.out.println("PACKAGE: " + s);
 
             JarEntry je = new JarEntry(s);
             target.putNextEntry(je);
         }
 
         for (MyClass aClass : classList) {
-            System.out.println("CLASS: " + aClass.getxClass().getName());
 
             String entry = aClass.getxClass().getName().replace('.', '/');
             entry += ".class";
             JarEntry je = new JarEntry(entry);
-            je.setComment("Creating Jar");
-            je.setTime(Calendar.getInstance().getTimeInMillis());
             target.putNextEntry(je);
             CtClass ctClass = classPool.get(aClass.getxClass().getName());
 

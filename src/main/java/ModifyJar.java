@@ -2,7 +2,6 @@ import types.MyClass;
 import javassist.*;
 
 import java.io.*;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -187,7 +186,7 @@ public class ModifyJar {
 
         boolean bool = Engine.myJar.packageList.remove(name.replace(".", "/") + "/");
 
-        if(!bool) throw new Exception("Nie ma takiego pakietu mozliwego do usuniecia");
+        if(!bool) throw new Exception("Nie ma takiego pakietu");
 
         List<MyClass> operatedList = new ArrayList<>();
         Engine.myJar.classList.stream().

@@ -14,12 +14,7 @@ public class ListingJar {
             packageName = myClass.getxClass().getName().substring(0, myClass.getxClass().getName().lastIndexOf("."));
             if (!packages.contains(packageName)) packages.add(packageName);
         }
-//        for (String aPackage : MyJar.packageList) {
-//            if (!packages.contains(aPackage)) {
-//                aPackage = aPackage.replace("/", ".");
-//                packages.add(aPackage.substring(0, aPackage.lastIndexOf(".")));
-//            }
-//        }
+
         packages.forEach(System.out::println);
     }
 
